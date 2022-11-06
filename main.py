@@ -5,7 +5,7 @@ from tkinter import END, Tk, Button, Entry
 root = Tk()
 root.title("Calculadora POO")
 root.resizable(0,0)
-root.geometry("300x250")
+root.geometry("295x305")
 
 # Configuración pantalla de salida 
 pantalla = Entry(root, width=40, bg="black", fg="white", borderwidth=0, font=("arial", 18, "bold"))
@@ -63,6 +63,9 @@ def igual():
     if operacion == "/":
         pantalla.insert(0, num1 / float(num2))
         
+def borrar():
+   pantalla.delete(0, END)
+        
 
 # Configuración botones
 boton_1 = Button(root, text="1", width=9, height=3, bg="white", fg="red", borderwidth=0, cursor="hand2", command=lambda: envia_boton(1)).grid(row=1, column=0, padx=1, pady=1)
@@ -80,5 +83,6 @@ boton_mas = Button(root, text="+", width=9, height=3, bg="deep sky blue", fg="bl
 boton_menos = Button(root, text="-", width=9, height=3, bg="deep sky blue", fg="black", borderwidth=0, cursor="hand2", command=resta).grid(row=2, column=3, padx=1, pady=1)
 boton_multiplicacion = Button(root, text="*",  width=9, height=3, bg="deep sky blue", fg="black", borderwidth=0, cursor="hand2", command=multiplicacion).grid(row=3, column=3, padx=1, pady=1)
 boton_division = Button(root, text="/", width=9, height=3, bg="deep sky blue", fg="black", borderwidth=0, cursor="hand2", command=division).grid(row=4, column=3, padx=1, pady=1)    
+boton_despejar = Button(root,text="C", width=40, height=3, bg="gray", fg="black", borderwidth=0, cursor="hand2",command=borrar).grid(row=5, column=0, columnspan=4, padx=1, pady=1)
 
 root.mainloop()
